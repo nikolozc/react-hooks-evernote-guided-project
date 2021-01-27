@@ -1,10 +1,15 @@
 import React from "react";
 
-function NoteItem() {
+function NoteItem({note, openNote, handleCancel, editing}) {
   return (
-    <li>
-      <h2>Title</h2>
-      <p>Caption...</p>
+    <li onClick={()=>{
+      if(editing === true){
+        handleCancel()
+      }
+      openNote(note)}
+      }>
+      <h2>{note.title}</h2>
+      <p>{note.body.substring(0,15)+"..."}</p>
     </li>
   );
 }

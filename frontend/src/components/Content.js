@@ -10,14 +10,14 @@ import Instructions from "./Instructions";
           Then complete the rest of your app before attempting to
           refactor to get this Content component to work.
 */
-function Content() {
+function Content({note, editing, handleCancel, handleEditClick, handleSubmit}) {
   const getContent = () => {
-    if (false) {
-      return <NoteEditor />;
-    } else if (false) {
-      return <NoteViewer />;
-    } else {
+    if (note === 1) {
       return <Instructions />;
+    } else if (editing === true) {
+      return <NoteEditor note={note} handleCancel={handleCancel} handleSubmit={handleSubmit}/>;
+    } else {
+      return <NoteViewer note={note} handleEditClick={handleEditClick}/>;
     }
   };
 
